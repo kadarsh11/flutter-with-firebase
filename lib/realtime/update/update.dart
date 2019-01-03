@@ -19,6 +19,7 @@ class _UpdateState extends State<Update> {
     super.initState();
     itemRef = FirebaseDatabase.instance.reference().child('items');
     itemRef.once().then((DataSnapshot snapshot) {
+      print("My key ${snapshot.key}");
       items.add(Item.fromSnapshot(snapshot));
     }).whenComplete(() {
       setState(() {
